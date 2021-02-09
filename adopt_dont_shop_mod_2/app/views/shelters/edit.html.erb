@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelters Index</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="main_container">
+      <main>
+        <div class="child">
+          <h1>Edit Shelter's Information</h1>
+            
+          <div class="form-container">
+            <%=form_tag "/shelters/#{@shelter.id}", method: :patch do%>
+              <%=label_tag :name %><br/>
+              <%=text_field_tag :name, "#{@shelter.name}" %><br/>
+
+              <%=label_tag :address %><br/>
+              <%=text_field_tag :address, "#{@shelter.address}" %><br/>
+
+              <%=label_tag :city %><br/>
+              <%=text_field_tag :city, "#{@shelter.city}" %><br/>
+
+              <%=label_tag :state %><br/>
+              <%=text_field_tag :state, "#{@shelter.state}" %><br/>
+
+              <%=label_tag :zip %><br/>
+              <%=text_field_tag :zip, "#{@shelter.zip}" %><br/>
+                <br>
+              <%= submit_tag "Submit Changes" %>
+            <% end %>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

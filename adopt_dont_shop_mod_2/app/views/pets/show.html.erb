@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelters Index</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="pets_container">
+      <main>
+        <div class="child">
+
+          <div class="grid-pet-container pet">
+            <div class="banner-grid_item"></div>
+
+            <%= image_tag(@pet.image, alt: @pet.name, class: "pet-index-image") %>
+
+            <nav class="name"> <h1> <a href="/pets/<%= @pet.id %>"><%= @pet.name %></a></h1> </nav>
+
+            <div class="info">
+              <ul>Age: <%= @pet.age %></ul>
+              <ul>Sex: <%= @pet.sex %></ul>
+              <ul>Description: <%= @pet.description %></ul>
+              <ul>Shelter: <%= @pet.shelter.name %></ul>
+              <ul>Status: <%= @pet.status %></ul>
+              <% @pet.apps.each do |app| %>
+              <ul>On hold for: <b><%= app.name %></b></ul>
+              <% end %>
+
+            </div>
+
+            <nav class="links" id="links">
+              <ul><%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %></ul>
+              <% if @pet.application_pending == true %>
+                <ul><%= link_to "View all applications for #{@pet.name}", "/pets/#{@pet.id}/applications" %></ul>
+                <% else %>
+                <ul><%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %></ul>
+                <ul><%= link_to "View all applications for #{@pet.name}", "/pets/#{@pet.id}/applications" %></ul>
+                <% end %>
+
+              <!--Favorite toggle button here-->
+              <% if session_favorites.include?(@pet)%>
+                <%= link_to "Remove Favorite", remove_favorite_favorite_path(@pet.id),  method: :patch %>
+              <%else%>
+                <%= link_to "Favorite", add_favorite_favorite_path(@pet),  method: :patch %>
+              <%end%>
+
+            </nav>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

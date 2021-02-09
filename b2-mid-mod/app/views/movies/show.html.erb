@@ -1,0 +1,21 @@
+<%="Title: #{@movie.title}"%><br/>
+<%="Year: #{@movie.creation_year}"%><br/>
+<%="Genre: #{@movie.genre}"%><br/>
+
+<p>Actors</p>
+<%@movie.actors_sorted_by_age.each do |actor|%>
+<ul><%= actor.name%></ul>
+<%end%>
+<%= "Actors average age: #{@movie.actors.average(:age)}"%><br/>
+
+<%= form_with model: @actor, local: true do |form| %>
+<p>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

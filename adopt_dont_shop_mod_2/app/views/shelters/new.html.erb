@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelters Index</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+  <div class="main_container">
+      <main>
+        <div class="child">
+          <h1>Add A New Shelter</h1>
+            
+          <div class="form-container">
+            <form action="/shelters" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+              <p>Create a New Shelter:</p>
+
+              <label for="name">Name:</label><br>
+              <input type='text' name='shelter[name]'><br/>
+
+              <label for="address">Address:</label><br>
+              <input type='text' name='shelter[address]'><br/>
+
+              <label for="city">City:</label><br>
+              <input type='text' name='shelter[city]'><br/>
+
+              <label for="state">State:</label><br>
+              <input type='text' name='shelter[state]'><br/>
+
+              <label for="zip">Zip:</label><br>
+              <input type='text' name='shelter[zip]'><br/>
+            
+              <p> <input type='submit' value="Create Shelter"/> </p>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelters Index</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+   <div class="pets_container">
+
+      <main>
+        <div class="child">
+          <h1>Add A New Pet</h1>
+
+            <%= render partial: 'form', locals: {
+                                                path: "/shelters/#{@shelter_id}/pets",
+                                                method: :post,
+                                                button_text: "Create Pet"
+                                              } %>
+        </div>
+      </main>
+
+    </div>
+
+  </body>
+</html>

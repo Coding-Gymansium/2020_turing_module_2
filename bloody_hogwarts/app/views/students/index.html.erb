@@ -1,0 +1,9 @@
+<% @students.each do |student|%>
+  <div id=<%= "student-#{student.id}"%>>
+    <%= student.name%>
+    <%= student.age%>
+    <%= student.house%>
+  </div>
+<%end%>
+
+<ul>Average Age: <%= @students.students_average_ages%></ul>

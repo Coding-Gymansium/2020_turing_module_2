@@ -1,0 +1,25 @@
+<h2>Edit Merchant</h2>
+<%= form_tag merchant_path(@merchant.id), method: :patch do %>
+  <ul>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %><br />
+  </ul>
+  <ul>
+    <%= label_tag :address %><br />
+    <%= text_field_tag :address %><br />
+  </ul>
+  <ul>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city %><br />
+  </ul>
+  <ul>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state %><br />
+  </ul>
+  <ul>
+    <%= label_tag :zip %><br />
+    <%= text_field_tag :zip %><br />
+  </ul>
+
+  <%= submit_tag 'Update Merchant' %>
+<% end %>

@@ -1,0 +1,110 @@
+# Tasks
+
+### Set up
+
+- [] Initial failing test pass
+
+  - [x] 1
+  - [x] 2
+  - [x] 3
+  - [x] 4
+  - [x] 5
+  - [x] 6
+
+
+
+### User Story 1 of 3
+- [x] Done
+- [x] Set up tests
+As a visitor,
+When I visit a project's show page ("/projects/:id"),
+  - [x] I see that project's name and material
+  - [x] And I also see the theme of the challenge that this project belongs to.
+  (e.g.    Litfit
+      Material: Lamp Shade
+    Challenge Theme: Apartment Furnishings)
+
+### User Story 2 of 3
+- [x] Done
+- [x] Set up tests
+
+As a visitor,
+When I visit the contestants index page ("/contestants")
+  - [x] I see a list of names of all the contestants
+  - [x] And under each contestants name I see a list of the projects (names) that they've been on
+  (e.g.   Kentaro Kameyama
+          Projects: Litfit, Rug Tuxedo
+          Jay McCarroll
+          Projects: LeatherFeather)
+
+<!-- capybara -->
+  <!-- within("#pet-#{@pet_2.id}") do
+    expect(page).to have_link("Remove Favorite")
+  end -->
+<!-- html -->
+<!-- <div id= <%= "pet-#{pet.id}" %>> </div> -->
+
+### User Story 3 of 3
+- [x] Done
+- [x] Set up tests
+
+As a visitor,
+When I visit a project's show page
+  - [x] I see a count of the number of contestants on this project
+(e.g.    Litfit
+    Material: Lamp Shade
+  Challenge Theme: Apartment Furnishings
+  Number of Contestants: 3 )
+
+
+
+### Extensions
+
+#### User Story Extension 1 - Average years of experience for contestants by project
+- [x] Done
+- [x] Set up tests
+
+As a visitor,
+When I visit a project's show page
+  - [x] I see the average years of experience for the contestants that worked on that project
+(e.g.    Litfit
+    Material: Lamp Shade
+  Challenge Theme: Apartment Furnishings
+  Number of Contestants: 3
+  Average Contestant Experience: 10.25 years)
+
+Using @news_chic 
+Erin: 15
+Jay: 13
+Gretchen: 12
+total: 40
+average: 40/3 = 13.3
+
+#### User Story Extension 2 - Adding a contestant to a project
+- [] Done
+- [] Set up tests
+
+As a visitor,
+When I visit a project's show page
+- [] I see a form to add a contestant to this project
+- [] When I fill out a field with an existing contestants id 
+- [] And CLICK "Add Contestant To Project" I'm taken back to the project's show page
+- [] And I see that the number of contestants has increased by 1
+- [] And when I visit the contestants index page
+I see that project listed under that contestant's name
+
+
+Notes:
+
+For the model test for projects to test contestant count, Brian set it up using this format instead of using before :each do, end.
+
+  recycled_material_challenge = Challenge.create(theme: "Recycled Material", project_budget: 1000)
+  news_chic = recycled_material_challenge.projects.create(name: "News Chic", material: "Newspaper")
+
+  jay = Contestant.create(name: "Jay McCarroll", age: 40, hometown: "LA", years_of_experience: 13)
+  gretchen = Contestant.create(name: "Gretchen Jones", age: 36, hometown: "NYC", years_of_experience: 12)
+  kentaro = Contestant.create(name: "Kentaro Kameyama", age: 30, hometown: "Boston", years_of_experience: 8)
+
+  news_chic.contestants << jay
+  news_chic.contestants << gretchen
+  news_chic.contestants << kentaro
